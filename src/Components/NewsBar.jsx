@@ -6,15 +6,16 @@ import { useSelector } from "react-redux";
 
 export default function NewsBar(props) {
   const [article, setArticle] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
+  // const [page, setPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);  // eslint-disable-line no-unused-vars
   const [isLoading, setIsLoading] = useState(true); // Add loader state
   const country = useSelector((state) => state.country);
 
   useEffect(() => {
     async function fetchMyAPI() {
       setIsLoading(true); // Show loader before fetching data
-   let  url = `https://gnews.io/api/v4/top-headlines?category=${props.category}&lang=en&country=${country}&max=9&apikey=fb495e536cb1cf7e0da778b445bc44cd&page=${page}`;
+  //  let  url = `https://gnews.io/api/v4/top-headlines?category=${props.category}&lang=en&country=${country}&max=9&apikey=fb495e536cb1cf7e0da778b445bc44cd&page=${page}`;
+   let  url = `https://gnews.io/api/v4/top-headlines?category=${props.category}&lang=en&country=${country}&max=9&apikey=fb495e536cb1cf7e0da778b445bc44cd`;
 
       let response = await fetch(url);
       response = await response.json();
@@ -23,7 +24,7 @@ export default function NewsBar(props) {
       setIsLoading(false); // Hide loader after data is fetched
     }
     fetchMyAPI();
-  }, [country, props.category, page]);
+  }, [country, props.category]);
 
   //  The next 
   // const handlePreviousClick = async () => {
