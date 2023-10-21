@@ -26,7 +26,8 @@ export default function NewsBar(props) {
     fetchMyAPI();
   }, [country, props.category]);
 
-  //  The next 
+  //  The next and privious button are commented because only paid api allow to go on next page.
+  
   // const handlePreviousClick = async () => {
   //   let  url = `https://gnews.io/api/v4/top-headlines?category=${props.category}&lang=en&country=${country}&max=9&apikey=fb495e536cb1cf7e0da778b445bc44cd&page=${page - 1}`;
 
